@@ -317,28 +317,8 @@ kubectl taint nodes --all \
   2>/dev/null || true
 
 log "Installing Gateway API CRDs ${GATEWAY_API_VERSION}"
-
 kubectl apply --server-side -f \
-  "https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/${GATEWAY_API_VERSION}/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml"
-
-kubectl apply --server-side -f \
-  "https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/${GATEWAY_API_VERSION}/config/crd/standard/gateway.networking.k8s.io_gateways.yaml"
-
-kubectl apply --server-side -f \
-  "https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/${GATEWAY_API_VERSION}/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml"
-
-kubectl apply --server-side -f \
-  "https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/${GATEWAY_API_VERSION}/config/crd/standard/gateway.networking.k8s.io_referencegrants.yaml"
-
-kubectl apply --server-side -f \
-  "https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/${GATEWAY_API_VERSION}/config/crd/experimental/gateway.networking.k8s.io_tcproutes.yaml"
-
-kubectl apply --server-side -f \
-  "https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/${GATEWAY_API_VERSION}/config/crd/experimental/gateway.networking.k8s.io_udproutes.yaml"
-
-kubectl apply --server-side -f \
-  "https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/${GATEWAY_API_VERSION}/config/crd/experimental/gateway.networking.k8s.io_tlsroutes.yaml" \
-  || true
+  "https://github.com/kubernetes-sigs/gateway-api/releases/download/${GATEWAY_API_VERSION}/standard-install.yaml"
 
 log "Installing/upgrading Cilium ${CILIUM_VERSION}"
 
