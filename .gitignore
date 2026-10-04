@@ -1,0 +1,7 @@
+*.log
+.env
+.env.*
+.kube/
+.DS_Store
+.idea/
+.vscode/
